@@ -1,0 +1,70 @@
+create table matches(referencedate date,matchno int,matchdate date,team1 varchar(20),team2 varchar(20),winner varchar(20))
+
+
+insert into matches (referencedate,matchno,matchdate,team1,team2) values ("2018-06-15T16:45","1","2018-06-14","Russia","Saudi Arabia")
+
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','1','2018-06-14','Russia','Saudi Arabia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','2','2018-06-15','Egypt','Uruguay')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','3','2018-06-15','Morocco','Iran')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','4','2018-06-15','Portugal','Spain')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','5','2018-06-16','France','Australia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','6','2018-06-16','Argentina','Iceland')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','7','2018-06-16','Peru','Denmark')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('1','2018-06-15T16:45','8','2018-06-17','Croatia','Nigeria')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','9','2018-06-17','Costa Rica','Serbia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','10','2018-06-17','Germany','Mexico')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','11','2018-06-17','Brazil','Switzerland')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','12','2018-06-18','Sweden','South Korea')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','13','2018-06-18','Belgium','Panama')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','14','2018-06-18','Tunisia','England')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','15','2018-06-19','Colombia','Japan')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','16','2018-06-19','Poland','Senegal')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('2','2018-06-17T16:45','17','2018-06-19','Russia','Egypt')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','18','2018-06-20','Portugal','Morocco')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','19','2018-06-20','Uruguay','Saudi Arabia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','20','2018-06-20','Iran','Spain')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','21','2018-06-21','Denmark','Australia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','22','2018-06-21','France','Peru')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','23','2018-06-21','Argentina','Croatia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','24','2018-06-22','Brazil','Costa Rica')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','25','2018-06-22','Nigeria','Iceland')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('3','2018-06-20T16:45','26','2018-06-22','Serbia','Switzerland')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','27','2018-06-23','Belgium','Tunisia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','28','2018-06-23','South Korea','Mexico')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','29','2018-06-23','Germany','Sweden')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','30','2018-06-24','England','Panama')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','31','2018-06-24','Japan','Senegal')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','32','2018-06-24','Poland','Colombia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','33','2018-06-25','Uruguay','Russia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','34','2018-06-25','Saudi Arabia','Egypt')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','35','2018-06-25','Iran','Portugal')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('4','2018-06-23T16:45','36','2018-06-25','Spain','Morocco')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','37','2018-06-26','Denmark','France')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','38','2018-06-26','Australia','Peru')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','39','2018-06-26','Nigeria','Argentina')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','40','2018-06-26','Iceland','Croatia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','41','2018-06-27','Mexico','Sweden')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','42','2018-06-27','South Korea','Germany')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','43','2018-06-27','Serbia','Brazil')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','44','2018-06-27','Switzerland','Costa Rica')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','45','2018-06-28','Japan','Poland')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','46','2018-06-28','Senegal','Colombia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','47','2018-06-28','Panama','Tunisia')
+insert into matches (matchreference,referencedate,matchno,matchdate,team1,team2) values ('5','2018-06-26T16:45','48','2018-06-28','England','Belgium')
+
+
+
+
+select m.matchno,m.referencedate,m.referencedate,m.team1,m.team2,p.id,p.points from 
+matches m,prediction p 
+where p.matchno=m.matchno and m.matchreference='1' and p.id='15' 
+
+select matchno,referencedate,matchdate,team1,team2 from matches where matchreference='1'
+
+
+
+Functions that needs to be created:--
+matchupdate()----Fields:- matchno,team1,team2
+winnerupdate()---Fields:-matchno,winner
+calculate()------none
+sum(d.itervalues())

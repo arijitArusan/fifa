@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FIFA 18</title>
+	  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="static\css\bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="static\css\style.css">
+    <link rel="stylesheet" type="text/css" href="static\css\nanoscroller.css">
+</head>
+<body>
+
+	<section class="section-lg bg-vide" data-vide-bg="video/dubai" data-vide-options="posterType: jpg">
+		<div class="video-bg-overlay">
+			<video class="fullscreen-bg__video" autoplay="" loop="" muted="" style=""><source src="static\Animotica_13_5_7_13_40.mp4" type="video/webm"></video>
+		</div>
+    <div class="content"></div>
+	    <div class="section-sm context-dark text-center">
+	      
+          <div>
+          <h style="font-family: dusha; font-size: 7.5em;color: white">HEXA FIFA Season 1</h>
+          </div>
+	        <div class="row justify-content-center">
+	         <div class="form-container">
+            
+            <div class="tab-content" id="pills-tabContent">
+              {% if b %}
+              <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                {% else %}
+                <div class="tab-pane fade" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                  {% endif %}
+                  <form action="/login" method="post">
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="background-color: rgba(0,0,0,0);font-family: dusha;">Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" style="background-color: rgba(0,0,0,0);font-family: dusha; color:white;"  placeholder="Username" name="username" value="{{request.form.username }}" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label" style="background-color: rgba(0,0,0,0);font-family: dusha;">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" style="background-color: rgba(0,0,0,0);font-family: dusha;color:white;" placeholder="Password" name="password" value="{{request.form.password }}" required>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary" style="background-color: rgba(0,0,0,0);font-family: dusha;">Sign in</button>
+                        </div>
+                      </div>
+                    </form>
+                    {% if error %}
+				    <p class="error"><strong>Error:</strong> {{ error }}
+		      	{% endif %}
+              </div>
+
+              {% if a %}
+              <div class="tab-pane fade show active" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                {% else %}
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                {% endif %}
+                 <form action="/signup" method="post" enctype = "multipart/form-data">
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="background-color: rgba(0,0,0,0);color:white;" >TeamName
+                        </label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" placeholder="TeamName" style="background-color: rgba(0,0,0,0);color:white;" name="teamname" value="{{request.form.teamname}}" required>
+                        </div>
+                      </div>
+            <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="background-color: rgba(0,0,0,0);color:white;" >TeamCaptain</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" style="background-color: rgba(0,0,0,0);color:white;" placeholder="TeamCaptain" name="teamcaptain" value="{{request.form.teamcaptain }}" required>
+                        </div>
+                      </div>
+            <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" style="background-color: rgba(0,0,0,0);color:white;">Memebr1</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" placeholder="Member1" style="background-color: rgba(0,0,0,0);color:white;" name="member1" value="{{request.form.member1 }}" required style="background-color: rgba(0,0,0,0)">
+                        </div>
+                      </div>
+            <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Member2</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control" style="background-color: rgba(0,0,0,0);color:white;" placeholder="Member2" name="member2" value="{{request.form.member2 }}" required>
+                        </div>
+                      </div>
+            <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Member3</label>
+                        <div class="col-sm-10">
+                          <input type="text"  style="background-color: rgba(0,0,0,0); color:white;" class="form-control" placeholder="Member3" name="member3" value="{{request.form.member3 }}" required>
+                        </div>
+                      </div>
+            <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label">Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" class="form-control"  placeholder="Username" name="username1" value="{{request.form.username1 }}" required style="background-color: rgba(0,0,0,0);color:white;">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                          <input type="password" class="form-control" placeholder="Password" name="password1" value="{{request.form.password1 }}" required style="background-color: rgba(0,0,0,0);color:white;">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputPassword3" class="col-sm-2 col-form-label">TeamPhoto</label>
+                        <div class="col-sm-10">
+                          <input type="File" class="form-control" placeholder="file" name="file" value="{{request.form.file}}"  style="background-color: rgba(0,0,0,0);color:white;">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary" style="background-color: rgba(0,0,0,0);color:white;">Sign Up</button>
+                        </div>
+                      </div>
+                    </form>
+                    {% if message %}
+        <p class="message"><strong> {{message}}</strong></p>
+      {% endif %}
+              </div>
+              {% if c %}
+              <div class="tab-pane fade show active " id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                {% else %}
+                <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
+                  {% endif %}
+                <form action="/pwreset" method="post">
+                      <div class="form-group row">
+                        <label for="inputEmail3" class="col-sm-2 col-form-label" >Username</label>
+                        <div class="col-sm-10">
+                          <input type="text" style="background-color: rgba(0,0,0,0);color:white;" class="form-control" placeholder="TeamName" name="username2" value="{{request.form.username2}}" required>
+                        </div>
+                      </div>
+                <div class="form-group row">
+                        <div class="col-sm-10">
+                          <button type="submit" class="btn btn-primary" style="background-color: rgba(0,0,0,0)" >Sign Up</button>
+                        </div>
+                      </div>
+                    </form>
+                    {% if message3 %}
+        <p class="message"><strong>Success:</strong> {{message3}}
+      {% endif %}
+              </div>
+            </div>  
+            <ul class="nav nav-pills mb-3 select-option" id="pills-tab" role="tablist">
+              <li class="nav-item" style="background-color: rgba(0,0,0,0.4)">
+                {% if b %}
+                <a class="nav-link active show" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true" style="background-color: rgba(0,0,0,0)">LogIn</a>
+                {% else %}
+                <a class="nav-link" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="flase" style="background-color: rgba(0,0,0,0)">LogIn</a>
+                {% endif %}
+              </li>
+              <li class="nav-item" style="background-color: rgba(0,0,0,0.4)">
+                {% if a %}
+                <a class="nav-link active show" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true" style="background-color: rgba(0,0,0,0)">SignUp</a>
+                {% else %}
+                <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false" style="background-color: rgba(0,0,0,0)">SignUp</a>
+                {% endif %}
+              </li>
+              <li class="nav-item" style="background-color: rgba(0,0,0,0.4)">
+                {% if c %}
+                <a class="nav-link active show" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: rgba(0,0,0,0)">ForgotPassword</a>
+                {% else %}
+                <a class="nav-link" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="false" style="background-color: rgba(0,0,0,0)">ForgotPassword</a>
+                {% endif %}
+              </li>
+            </ul>
+        </div>
+	      </div>
+	    </div>
+	</section>
+
+	<!-- Script -->
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="static\js\bootstrap.min.js"></script>
+    <script type="text/javascript" src="static\js\plugins\nanoscroller.js"></script>
+    <script>
+      $(document).ready(() => {
+        $(".nano").nanoScroller();
+      })
+    </script>
+</body>
+</html>

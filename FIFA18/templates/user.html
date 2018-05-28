@@ -1,0 +1,96 @@
+{% extends "main.html" %}
+{% block body %}
+            <!-- End Navbar -->
+            <div class="content" style="background-blend-mode: luminosity;background: #053364 url(http://img.fifa.com/images/fwc/2018/bg.jpg) repeat;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Team Profile</h4>
+                                </div>
+                                <div class="card-body">
+                                    {% if  team %}
+                                    
+                                    <form action="/pwreset2" method="post">
+                                        {% for data in team %}
+                                        <div class="row">
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Team Name</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="{{data.get('teamname')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>User Name</label>
+                                                    <input type="text" name="userid" class="form-control" disabled placeholder="userid" value="{{data.get('userid')}}">
+                                                </div>
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Team Captain</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="{{data.get('teamcaptain')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Member1</label>
+                                                    <input type="text" class="form-control" disabled placeholder="Username" value="{{data.get('member1')}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Member2</label>
+                                                    <input type="text" class="form-control" disabled="" placeholder="Company" value="{{data.get('member2')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Member3</label>
+                                                    <input type="text" class="form-control" disabled placeholder="Username" value="{{data.get('member3')}}">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-5 pr-1">
+                                                <div class="form-group">
+                                                    <label>Password</label>
+                                                    <input type="password" name="Password" class="form-control" placeholder="Password" value="{{request.form.Password}}">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Update Password</button>
+                                        <div class="clearfix"></div>
+                                        {% endfor %}
+                                    </form>
+                                    {% if error1 %}
+                                    <p1>{{error1}}</p1>
+                                    {% endif %}
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-user">
+                                <div class="card-image">
+                                    <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400123" alt="...">
+                                </div>
+                                <div class="card-body">
+                                    <div class="author">
+                                            <img class="avatar border-gray" src="/static/img/faces/{{teamname2}}.jpeg" onerror="this.src='/static/img/faces/face-0.jpg'">
+                                            <h5 class="title" style="font-family: dusha;">macha fantabulous team photo macha</h5>
+                                    </div>
+                                    <p class="description text-center">
+                
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

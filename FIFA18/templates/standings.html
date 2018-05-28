@@ -1,0 +1,40 @@
+{% extends "main.html" %}
+{% block body %}
+            <!-- End Navbar -->
+            <div class="content" style="background-blend-mode: luminosity;background: #053364 url(http://img.fifa.com/images/fwc/2018/bg.jpg) repeat;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover" style="background-color: transparent;">
+                                <div class="card-header" style="background-color: transparent;">
+                                {% if custan %}
+                                    <h2 class="card-title" style="font-family: dusha;">Current Standings are Outstanding</h4>
+                                    <p2 class="card-title" style="font-family: dusha;">Current Results are Till</p4>
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    <table class="table table-hover table-striped">
+                                        <thead>
+                                            <th>Rank</th>
+                                            <th>TeamName</th>
+                                            <th>Point</th>
+                                        </thead>
+                                        <tbody>
+                                        {% for data in custan %}                                     
+                                            <tr>
+                                                <td style="font-family: dusha;">{{ loop.index }}</td>
+                                                <td style="font-family: dusha;">{{data.get('teamname')}}</td>
+                                                <td style="font-family: dusha;">{{data.get('total')}}</td>
+                                            </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                    </table>
+                                </div>
+                                {% else %}
+                                    <h1 class="card-title">Wait Macha, contest is yet to begin</h1>
+                                    {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}

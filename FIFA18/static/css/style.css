@@ -1,0 +1,146 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: dusha;
+}
+
+#myVideo {
+    position: fixed;
+    min-width: 100%;
+    min-height: 100%;
+    left: 0;
+    top: -35px;
+}
+.header {
+    position: fixed;
+    left: 0%;
+    width: 100%;
+    text-align: center;
+    color: #fff;
+    font-size: 72px;
+    top: 30px;
+    z-index: 1000;
+}
+.content {
+    position: fixed;
+    top: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: #f1f1f1;
+    width: 100%;
+    left: 0;
+    height: 100%;
+	z-index:-3;
+}
+.login{
+    position:fixed;
+    top: 50%;
+    left: 50%;
+    width:30em;
+    height:28em;
+    margin-top: -14em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    background-color: rgba(0, 0, 0, 0.0);
+	overflow: hidden;
+    border: 1px solid #ccc;
+	z-index:100;
+}
+.login button {
+    background-color: rgba(0, 0, 0, 0.0);
+    float: right;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 25px;
+	color:#ffffff
+}
+/* Change background color of buttons on hover */
+.login button:hover {
+    background-color:#00ffbf;
+}
+
+/* Create an active/current tablink class */
+.login button.active {
+    background-color: #9DDC6F;
+}
+.tabcontent {
+    display: none;
+    padding: 6px 12px;
+    border: 1px solid #ccc;
+    border-top: none;
+	z-index:100;
+}
+
+.form-container {
+    position: absolute;
+    left: 50%;
+    top: 60%;
+    color: #fff;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    z-index: 1000px;
+    min-width: 500px
+}
+
+.select-option li {
+    width: 33.33%;
+    text-align: center;
+    background-color: #504c4c;
+}
+
+@media (min-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-aspect-ratio: 16/9) {
+  .fullscreen-bg__video {
+    width: auto;
+    height: 100%;
+  }
+}
+
+.fullscreen-bg__video {
+    margin: auto; 
+    position: absolute; 
+    z-index: -1; 
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); 
+    visibility: visible; opacity: 1;
+}
+
+.video-bg-overlay {
+    position: absolute; 
+    z-index: -5; 
+    top: 0px; 
+    left: 0px; 
+    bottom: 0px; 
+    right: 0px; 
+    overflow: hidden; 
+    background-size: cover; 
+    background-color: transparent; 
+    background-repeat: no-repeat; 
+    background-position: 50% 50%; 
+    background-image: none;
+}
+.form-control1 {
+    background-color: rgba(0,0,0,0);
+}
+
+@font-face {
+    font-family: 'dusha';
+    src: url('fonts/dusha.eot');
+    src: url('fonts/dusha.eot') format('embedded-opentype'),
+         url('fonts/dusha.woff2') format('woff2'),
+         url('fonts/dusha.woff') format('woff'),
+         url('fonts/dusha.ttf') format('truetype'),
+         url('fonts/dusha.svg#dusha') format('svg');
+}
+

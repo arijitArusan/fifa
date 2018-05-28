@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    form {
+        border: 3px solid #f1f1f1;
+    }
+
+    input[type=text],
+    input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        box-sizing: border-box;
+    }
+
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        cursor: pointer;
+        width: 100%;
+    }
+
+    button:hover {
+        opacity: 0.8;
+    }
+
+    .cancelbtn {
+        width: auto;
+        padding: 10px 18px;
+        background-color: #f44336;
+    }
+
+    .imgcontainer {
+        text-align: center;
+        margin: 24px 0 12px 0;
+    }
+
+    img.avatar {
+        width: 40%;
+        border-radius: 50%;
+    }
+
+    .container {
+        padding: 16px;
+    }
+
+    span.psw {
+        float: right;
+        padding-top: 16px;
+    }
+    /* Change styles for span and cancel button on extra small screens */
+
+    @media screen and (max-width: 300px) {
+        span.psw {
+            display: block;
+            float: none;
+        }
+        .cancelbtn {
+            width: 100%;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <h2>FIFA Admin Page</h2>
+    <p1><strong>Logged in As: </strong>{{admin}}</p1>
+    <div>
+        <p1><strong><a href="/logout2">Logout</a></strong>
+            <p1>
+    </div>
+    <form action="/WeeklyPointUpdate" method="post">
+        <h3>Weekly Point Update</h3>
+        <div class="container">
+            <label for="sel1"><b>Week No</b></label>
+            <select name="week" class="form-control" id="sel1">
+                <option name="week" value="week1">Week1</option>
+                <option name="week" value="week2">Week2</option>
+                <option name="week" value="week3">Week3</option>
+                <option name="week" value="week4">Week4</option>
+                <option name="week" value="week5">Week5</option>
+                <option name="week" value="week6">Week6</option>
+                <option name="week" value="week7">Week7</option>
+                <option name="week" value="week8">Week8</option>
+                <option name="week" value="week9">Week9</option>
+                <option name="week" value="week10">Week10</option>
+            </select>
+            <br>
+            <label for="point"><b>Week Point</b></label>
+            <input type="text" placeholder="Enter Weekly Point" name="point" required value="{{request.form.point}}">
+            <button type="submit">Submit</button>
+        </div>
+        {% if error%}
+        <p1>{{error}}</p1>
+        {% endif %}
+        <div class="container" style="background-color:#f1f1f1">
+        </div>
+    </form>
+    <form action="/UpdateMatch" method="post">
+        <div class="imgcontainer">
+        </div>
+        <h3>Update Match</h3>
+        <div class="container">
+            <label for="sel1"><b>Username</b></label>
+            <select name="matchnumber" class="form-control" id="sel1">
+                <option value="49">Match49</option>
+                <option value="50">Match50</option>
+                <option value="51">Match51</option>
+                <option value="52">Match52</option>
+                <option value="53">Match53</option>
+                <option value="54">Match54</option>
+                <option value="55">Match55</option>
+                <option value="56">Match56</option>
+                <option value="57">Match57</option>
+                <option value="58">Match58</option>
+                <option value="59">Match59</option>
+                <option value="60">Match60</option>
+                <option value="62">Match62</option>
+                <option value="63">Match63</option>
+                <option value="64">Match64</option>
+            </select>
+            <label for="sel1"><b>team1</b></label>
+            <select name="team1" class="form-control" id="sel1">
+                <option value="Russia">Russia</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Portugal">Portugal</option>
+                <option value="France">France</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Peru">Peru</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Germany">Germany</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Poland">Poland</option>
+                <option value="Russia">Russia</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Iran">Iran</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Serbia">Serbia</option>
+                <option value="South Korea">South Korea</option>
+                <option value="England">England</option>
+                <option value="Japan">Japan</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Spain">Spain</option>
+                <option value="Australia">Australia</option>
+                <option value="Iceland">Iceland</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Panama">Panama</option>
+            </select>
+            <label for="sel1"><b>team2</b></label>
+            <select name="team2" class="form-control" id="sel1">
+                <option value="Russia">Russia</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Portugal">Portugal</option>
+                <option value="France">France</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Peru">Peru</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Germany">Germany</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Poland">Poland</option>
+                <option value="Russia">Russia</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Iran">Iran</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Serbia">Serbia</option>
+                <option value="South Korea">South Korea</option>
+                <option value="England">England</option>
+                <option value="Japan">Japan</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Spain">Spain</option>
+                <option value="Australia">Australia</option>
+                <option value="Iceland">Iceland</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Panama">Panama</option>
+            </select>
+            <button type="submit">Submit</button>
+        </div>
+        {% if error%}
+        <p1>{{error}}</p1>
+        {% endif %}
+        <div class="container" style="background-color:#f1f1f1">
+        </div>
+    </form>
+    <form action="/UpdateMatchWinner" method="post">
+        <h3>Update Match Winner</h3>
+        <div class="container">
+          <div class="form-group">
+            <label for="sel1"><b>Match Number</b></label>
+            <select name="matchnumber2" class="form-control" id="sel1">
+                <option value="1">Match1</option>
+                <option value="2">Match2</option>
+                <option value="3">Match3</option>
+                <option value="4">Match4</option>
+                <option value="5">Match5</option>
+                <option value="6">Match6</option>
+                <option value="7">Match7</option>
+                <option value="8">Match8</option>
+                <option value="9">Match9</option>
+                <option value="10">Match10</option>
+                <option value="11">Match11</option>
+                <option value="12">Match12</option>
+                <option value="13">Match13</option>
+                <option value="14">Match14</option>
+                <option value="15">Match15</option>
+                <option value="16">Match16</option>
+                <option value="17">Match17</option>
+                <option value="18">Match18</option>
+                <option value="19">Match19</option>
+                <option value="20">Match20</option>
+                <option value="21">Match21</option>
+                <option value="22">Match22</option>
+                <option value="23">Match23</option>
+                <option value="24">Match24</option>
+                <option value="25">Match25</option>
+                <option value="26">Match26</option>
+                <option value="27">Match27</option>
+                <option value="28">Match28</option>
+                <option value="29">Match29</option>
+                <option value="30">Match30</option>
+                <option value="31">Match31</option>
+                <option value="32">Match32</option>
+                <option value="33">Match33</option>
+                <option value="34">Match34</option>
+                <option value="35">Match35</option>
+                <option value="36">Match36</option>
+                <option value="37">Match37</option>
+                <option value="38">Match38</option>
+                <option value="39">Match39</option>
+                <option value="40">Match40</option>
+                <option value="41">Match41</option>
+                <option value="42">Match42</option>
+                <option value="43">Match43</option>
+                <option value="44">Match44</option>
+                <option value="45">Match45</option>
+                <option value="46">Match46</option>
+                <option value="47">Match47</option>
+                <option value="48">Match48</option>
+                <option value="49">Match49</option>
+                <option value="50">Match50</option>
+                <option value="51">Match51</option>
+                <option value="52">Match52</option>
+                <option value="53">Match53</option>
+                <option value="54">Match54</option>
+                <option value="55">Match55</option>
+                <option value="56">Match56</option>
+                <option value="57">Match57</option>
+                <option value="58">Match58</option>
+                <option value="59">Match59</option>
+                <option value="60">Match60</option>
+                <option value="61">Match61</option>
+                <option value="62">Match62</option>
+                <option value="63">Match63</option>
+                <option value="64">Match64</option>
+            </select>
+            <br>
+            <label for="sel1"><b>Winner</b></label>
+            <select name="matchwinner" class="form-control" id="sel1">
+                <option value="Russia">Russia</option>
+                <option value="Egypt">Egypt</option>
+                <option value="Morocco">Morocco</option>
+                <option value="Portugal">Portugal</option>
+                <option value="France">France</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Peru">Peru</option>
+                <option value="Croatia">Croatia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Germany">Germany</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Sweden">Sweden</option>
+                <option value="Belgium">Belgium</option>
+                <option value="Tunisia">Tunisia</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Poland">Poland</option>
+                <option value="Russia">Russia</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Iran">Iran</option>
+                <option value="Denmark">Denmark</option>
+                <option value="Nigeria">Nigeria</option>
+                <option value="Serbia">Serbia</option>
+                <option value="South Korea">South Korea</option>
+                <option value="England">England</option>
+                <option value="Japan">Japan</option>
+                <option value="Saudi Arabia">Saudi Arabia</option>
+                <option value="Spain">Spain</option>
+                <option value="Australia">Australia</option>
+                <option value="Iceland">Iceland</option>
+                <option value="Mexico">Mexico</option>
+                <option value="Switzerland">Switzerland</option>
+                <option value="Senegal">Senegal</option>
+                <option value="Panama">Panama</option>
+            </select>
+            <button type="submit">Submit</button>
+          </div>
+        </div>
+        {% if error%}
+        <p1>{{error}}</p1>
+        {% endif %}
+        <div class="container" style="background-color:#f1f1f1">
+        </div>
+    </form>
+</body>
+
+</html>

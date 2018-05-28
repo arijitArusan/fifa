@@ -1,0 +1,12 @@
+body {
+    font-family: dusha;
+}
+@font-face {
+    font-family: 'dusha';
+    src: url('fonts/dusha.eot');
+    src: url('fonts/dusha.eot') format('embedded-opentype'),
+         url('fonts/dusha.woff2') format('woff2'),
+         url('fonts/dusha.woff') format('woff'),
+         url('fonts/dusha.ttf') format('truetype'),
+         url('fonts/dusha.svg#dusha') format('svg');
+}

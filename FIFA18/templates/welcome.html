@@ -1,0 +1,65 @@
+{% extends "main.html" %}
+{% block body %}
+            <!-- End Navbar -->
+            <div class="content" style="background-blend-mode: luminosity;background: #053364 url(http://img.fifa.com/images/fwc/2018/bg.jpg) repeat;">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="card strpied-tabled-with-hover" style="background-color: transparent;">
+                                <div class="card-header" style="background-color: transparent;">
+                                    {% if k %}
+                                    <h4 class="card-title" style="font-family: dusha;">Please go Ahead and Bid</h4>
+                                </div>
+                                <div class="card-body table-full-width table-responsive">
+                                    
+                                    <form enctype="multipart/form-data" method="post">
+                                        
+                                        <table class="table table-hover table-striped">
+                                            <tbody>
+                                                <tr>
+                                                    <th>matchnumber</th>
+                                                    <th>team1</th>
+                                                    <th></th>
+                                                    <th>vs</th>
+                                                    <th>team2</th>
+                                                    <th></th>
+                                                    <th>winner</th>
+                                                    <th>matchpoints</th>
+                                                </tr>
+                                                {% if message %}
+                                                 {% for data in message %} 
+                                                <tr>
+                                                    <th><input name="matchnumber" readonly type="text" value="{{data.get('matchno')}}"></th>
+                                                    <th>{{data.get('team1')}}</th><th> <img class="avatar border-gray" height=10px width=10px style="border-radius: 50%;"
+                                            src="/static/img/maps/{{data.get('team1')}}.png" alt="..."></th>
+                                                    <th>vs</th>
+                                                    <th>{{data.get('team2')}}</th><th> <img class="avatar border-gray" height=10px width=10px style="border-radius: 50%;"
+                                            src="/static/img/maps/{{data.get('team2')}}.png" alt="..."></th>
+                                                    <th><select name="winner">
+                                    }
+                            <option value="{{data.get('team1')}}">
+                              {{data.get('team1')}}
+                            </option>
+                            <option value="{{data.get('team2')}}">
+                              {{data.get('team2')}}
+                            </option>
+                          </select></th>
+                                                    <th><input max="1000" min="500" name="point" placeholder="Point" required="" type="number" value="{{data.get('points')}}" {{disabled}}></th>
+                                                </tr>
+                                                {% endfor %} 
+                                                {% endif %}
+                                            </tbody>
+                                        </table><input type="submit">
+                                    </form>
+                                    {% elif p%}
+                                        <h2 style="font-family: dusha;">{{p}}</h2>
+                                        {%else%}
+                                        <h2 style="font-family: dusha;">You have already bidded for the matches, please go to your bid section to check your bids</h2>
+                                        {%endif%} 
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{% endblock %}
