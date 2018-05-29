@@ -9,7 +9,7 @@ from flask_mail import Mail,Message
 from werkzeug.utils import secure_filename
 import os
 from datetime import timedelta
-from flask import session, app
+from flask import session, app,g
 fifa18 = Flask(__name__)
 secretkey = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
 fifa18.secret_key = secretkey
@@ -19,12 +19,10 @@ fifa18.config.update(
     MAIL_SERVER='smtp.gmail.com',
     MAIL_PORT=465,
     MAIL_USE_SSL=True,
-    MAIL_USERNAME='',
-    MAIL_PASSWORD='',    
+    MAIL_USERNAME='arijitd1791@gmail.com',
+    MAIL_PASSWORD='zwjnvsaitxwdkdwp',     
 )
 mail=Mail(fifa18)
-
-
 #login required decorator
 def login_required(f):
 	@wraps(f)
@@ -49,17 +47,23 @@ def page_not_found(e):
 @fifa18.route('/')
 def index():
     session.pop('logged_in', None)
-    session.pop('logged_in', None)
+    session.pop('id11',None)
+    session.pop('teamname11',None)
+    session.pop('teamcaptain31',None)
     return render_template("index.html",b="b")
 @fifa18.route('/login', methods=['GET', 'POST'])
 def login():
     session.pop('logged_in', None)
-    session.pop('logged_in', None)
-    session.pop('logged_in', None)
+    session.pop('id11',None)
+    session.pop('teamname11',None)
+    session.pop('teamcaptain31',None)
     error = None
     if request.method == 'POST':
-        global teamname1, id1,teamcaptain3
+        #global teamname1, id1,teamcaptain3
         out, id1, teamname1,teamcaptain3 = userauthentication(request.form['username'], request.form['password'])
+        session['id11']=id1
+        session['teamname11']=teamname1
+        session['teamcaptain31']=teamcaptain3
         if out == 'User Not Present':
             error = 'User Not Registered, Please Register'
         else:
@@ -67,15 +71,16 @@ def login():
                 error = 'Invalid Credentials, please try Again'
             else:
                 session['logged_in'] = True
-                return render_template("main.html",teamname2=teamname1)
+                return render_template("main.html",teamname2=session['teamname11'])
     return render_template("index.html", error=error,b="b")
 
 
 @fifa18.route('/signup', methods=['GET', 'POST'])
 def signup():
     session.pop('logged_in', None)
-    session.pop('logged_in', None)
-    session.pop('logged_in', None)
+    session.pop('id11',None)
+    session.pop('teamname11',None)
+    session.pop('teamcaptain31',None)
     message = None
     if request.method == 'POST':
         teamname = request.form["teamname"]
@@ -110,8 +115,9 @@ def signup():
 @fifa18.route('/pwreset',methods=['GET', 'POST'])
 def pwreset():
     session.pop('logged_in', None)
-    session.pop('logged_in', None)
-    session.pop('logged_in', None)
+    session.pop('id11',None)
+    session.pop('teamname11',None)
+    session.pop('teamcaptain31',None)
     message = None
     if request.method == 'POST':
         username = request.form["username2"]
@@ -135,8 +141,8 @@ def pwreset():
 def welcome():
     message = None
     disabled = None
-    teamname2 = teamname1
-    id2 = id1
+    teamname2 = session['teamname11']
+    id2 = session['id11']
     matchrender1 = matchrender(id2)
     if request.method == 'POST':
         result = request.form
@@ -151,7 +157,7 @@ def welcome():
             matchinput(id2, data.get('matchnumber'),    
                        data.get('winner'), data.get('point'))
         try:
-            msg=Message("Your Bids For Today",sender="fifa@gmail.com",recipients=[teamcaptain3,"arijitd1791@gmail.com"])
+            msg=Message("Your Bids For Today",sender="fifa@gmail.com",recipients=[session['teamcaptain31'],"arijitd1791@gmail.com"])
             msg.body=render_template("mailtemplate.txt",mybids1=output,teamname2=teamname2)
             msg.html=render_template("mailtemplate.html",mybids1=output,teamname2=teamname2)
             mail.send(msg)
@@ -170,14 +176,14 @@ def welcome():
 @fifa18.route('/confirm')
 @login_required
 def confirm():
-    return render_template("confirm.html",teamname2=teamname1)
+    return render_template("confirm.html",teamname2=session['teamname11'])
 
 @fifa18.route('/bids',methods=['GET', 'POST'])
 @login_required
 def bids():
-    id2=id1
+    id2=session['id11']
     mybids1=mybids(id2)
-    return render_template("yourbid.html",mybids1=mybids1,teamname2=teamname1,c2="nav-item active")
+    return render_template("yourbid.html",mybids1=mybids1,teamname2=session['teamname11'],c2="nav-item active")
 
 @fifa18.route('/currentstanding1',methods=['GET', 'POST'])
 @login_required
@@ -186,28 +192,31 @@ def currentstanding1():
     custan=currentstanding()
     for data in custan:
         date=data.get("updatedatetime")
-    return render_template("standings.html",custan=custan,teamname2=teamname1,c3="nav-item active")
+    return render_template("standings.html",custan=custan,teamname2=session['teamname11'],c3="nav-item active")
 
 @fifa18.route('/acc',methods=['GET', 'POST'])
 @login_required
 def acc():
-    team=usr1(id1)
-    return render_template("user.html",teamname2=teamname1,team=team,error1=request.args.get('error'))
+    id2=session['id11']
+    team=usr1(id2)
+    return render_template("user.html",teamname2=session['teamname11'],team=team,error1=request.args.get('error'))
 
 @fifa18.route('/pwreset2',methods=['GET', 'POST'])
 @login_required
 def pwreset2():
     if request.method == 'POST':
+        id2=session['id11']
         password2=request.form["Password"]               
-        print(password2,id1)
-        e=pwreset3(password2,id1)
+        print(password2,id2)
+        e=pwreset3(password2,id2)
         if e:
             error="something went wrong please try gain later"
             return redirect(url_for('acc',error=error))
         else:
             session.pop('logged_in', None)
-            session.pop('logged_in', None)
-            session.pop('logged_in', None)
+            session.pop('id11',None)
+            session.pop('teamname11',None)
+            session.pop('teamcaptain31',None)
             return render_template("pwreset.html")       
     return redirect(url_for('acc'))
 
@@ -215,8 +224,9 @@ def pwreset2():
 @login_required
 def logout():
     session.pop('logged_in', None)
-    session.pop('logged_in', None)
-    session.pop('logged_in', None)
+    session.pop('id11',None)
+    session.pop('teamname11',None)
+    session.pop('teamcaptain31',None)
     #return render_template("logout.html")
     return redirect(url_for('index'))
 
