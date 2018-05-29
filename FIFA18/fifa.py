@@ -11,7 +11,7 @@ import os
 from datetime import timedelta
 from flask import session, app,g
 fifa18 = Flask(__name__)
-secretkey = ''.join(random.choices(string.ascii_letters + string.digits, k=32))
+secretkey ="456382675890ryhu75864tggrhyujiofh678355"
 fifa18.secret_key = secretkey
 APP_ROOT=os.path.dirname(os.path.abspath(__file__))
 fifa18.config.update(
