@@ -4,10 +4,7 @@ import time
 from dateutil import parser
 import random
 import string
-DBCONN_NAME=""
-DBUSER_NAME=""
-DBPASSWORD=""
-DBNAME=""
+from random import choice,randint
 referencetime1=datetime.datetime.strptime('2018-06-15 16:45', "%Y-%m-%d %H:%M")
 referencetime2=datetime.datetime.strptime('2018-06-17 16:45', "%Y-%m-%d %H:%M")
 referencetime3=datetime.datetime.strptime('2018-06-20 16:45', "%Y-%m-%d %H:%M")
@@ -157,6 +154,7 @@ def pwresetuser(username):
         cursor.execute(query)
         data=cursor.fetchall()
         pwreset=[dict(id=row[0],username=row[1],password=row[2],teamcaptain=row[3]) for row in data]
+        print(pwreset)
         for data in pwreset:
             null="null"
             password_temp2=data.get('password')
@@ -168,7 +166,8 @@ def pwresetuser(username):
             return error,null,null,null
             database.close()
         else:
-            pas = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+            characters = string.ascii_letters + string.punctuation  + string.digits
+            pas = "".join(choice(characters) for x in range(randint(8, 16)))
             id1=str(id1)
             pas=str(pas)
             query2=("update users set password='"+pas+"' where id='"+id1+"'")
@@ -178,6 +177,7 @@ def pwresetuser(username):
             return error,pas,username1,teamcaptain1
     except Exception as e:
         null="null"
+        print(str(e))
         return str(e),null,null,null
 def mybids(id2):
     try:
