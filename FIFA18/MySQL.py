@@ -5,10 +5,6 @@ from dateutil import parser
 import random
 import string
 from random import choice,randint
-DBCONN_NAME="myfifadb.cot3fn6vn803.ap-south-1.rds.amazonaws.com"
-DBUSER_NAME="scott"
-DBPASSWORD="scotttiger"
-DBNAME="S3UploadDB"
 referencetime1=datetime.datetime.strptime('2018-06-15 16:45', "%Y-%m-%d %H:%M")
 referencetime2=datetime.datetime.strptime('2018-06-17 16:45', "%Y-%m-%d %H:%M")
 referencetime3=datetime.datetime.strptime('2018-06-20 16:45', "%Y-%m-%d %H:%M")
