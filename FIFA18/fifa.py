@@ -239,7 +239,7 @@ def adminlogin():
     print("started")
     if request.method == 'POST':
         adminusername=request.form['username']
-        session['adminusername1']=adminusername
+        session['adminusername11']=adminusername
         out = adminlogin1(request.form['username'], request.form['password'])
         print(out)
         if out == 'True':
@@ -286,7 +286,7 @@ def UpdateMatchWinner():
 @login_required2
 def adminpage():
     error = None
-    return render_template("adminpage.html", error=error,admin=session['adminusername1'])
+    return render_template("adminpage.html", error=error,admin=session['adminusername11'])
 
 @fifa18.route('/logout2')
 @login_required2
