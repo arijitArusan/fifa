@@ -96,7 +96,7 @@ def signup():
             photo = request.files['file']
         except Exception as e:
             print(str(e))
-        target=os.path.join(APP_ROOT,'static\\img\\faces\\')
+        target=os.path.join(APP_ROOT,'static/img/faces/')
         fname=fname2+".jpeg"
         out = usersignup(teamname, teamcaptain, member1,
                          member2, member3, username, password)
