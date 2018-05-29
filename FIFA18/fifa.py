@@ -238,8 +238,8 @@ def adminlogin():
     error = None
     print("started")
     if request.method == 'POST':
-        global adminusername
         adminusername=request.form['username']
+		session['adminusername1']=adminusername
         out = adminlogin1(request.form['username'], request.form['password'])
         print(out)
         if out == 'True':
@@ -286,7 +286,7 @@ def UpdateMatchWinner():
 @login_required2
 def adminpage():
     error = None
-    return render_template("adminpage.html", error=error,admin=adminusername)
+    return render_template("adminpage.html", error=error,admin=session['adminusername1'])
 
 @fifa18.route('/logout2')
 @login_required2
